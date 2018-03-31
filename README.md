@@ -11,3 +11,10 @@
 尝试解放自己，造福2017ers
 
 # 研究性试验报告
+Finished
+
+# Screenshot
+![1](https://raw.githubusercontent.com/hankso/1091-Michelson-BUAA/master/Screenshot%20from%202017-12-13%2016.51.30.png)
+
+![2](https://raw.githubusercontent.com/hankso/1091-Michelson-BUAA/master/Screenshot%20from%202017-12-13%2017-19-35.png)
+

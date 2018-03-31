@@ -106,7 +106,7 @@ class BPE(object):
 
     def _open_cam(self, src):
         if src is None:
-            self.cam = cv2.VideoCapture(src)
+            self.cam = cv2.VideoCapture(0)
             for _ in xrange(3):
                 if self.cam.isOpened():
                     print('camera is opened')
@@ -340,7 +340,8 @@ class BPE(object):
                     if not int(time.time()-self.start_time)%10:
                         self.num_list.append(self.do_ocr(self.frame))
 
-                self.frame = self.cam.read()[1]
+                rst, self.frame = self.cam.read()
+                if not rst: break
                 self.frame = self.process_img(self.frame)
 
                 self._keyboard(cv2.waitKey(self._ftd))
@@ -483,7 +484,7 @@ class _virtual_cam_class(object):
             try:
                 import image2gif
                 src = image2gif.readGif(src)
-                self.read = iter(zip(len(src)*[True], src)).next
+                self.read = next(iter(zip(len(src)*[True], src)), (False, None))
                 self.is_open = True
             except:
                 self.is_open = False
